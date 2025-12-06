@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Potwierdzenie aresu E-mail</title>
+</head>
+<body>
+
+<p id="info">Podaj adres E-mail</p>
+
+<script>
+const poprawnyEmail = "Mjjr0002@gmail.com"; 
+
+let email = prompt("Podaj adres E-mail");
+
+if (email === poprawnyEmail) {
+    document.body.innerHTML = `
+        <h1>Potwierdzenie adresu e-mail</h1>
+        <p>Twój adres E-mail jest już potwierdzony!</p>
+    `;
+} else {
+    document.getElementById("info").textContent = "Niepoprawny adres E-mail.";
+}
+</script>
+
+</body>
+</html>
