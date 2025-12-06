@@ -2,24 +2,20 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Potwierdzenie aresu E-mail</title>
+    <title>Potwierdzenie e-mail</title>
 </head>
 <body>
 
-<p id="info">Podaj adres E-mail</p>
+<p id="tekst"></p>
 
 <script>
-const poprawnyEmail = "Mjjr0002@gmail.com"; 
+let czyByl = localStorage.getItem("emailConfirmed");
 
-let email = prompt("Podaj adres E-mail");
-
-if (email === poprawnyEmail) {
-    document.body.innerHTML = `
-        <h1>Potwierdzenie adresu e-mail</h1>
-        <p>Twój adres E-mail jest już potwierdzony!</p>
-    `;
+if (czyByl === null) {
+    document.getElementById("tekst").textContent = "Twój adres E-mail został właśnie potwierdzony!";
+    localStorage.setItem("emailConfirmed", "true");
 } else {
-    document.getElementById("info").textContent = "Niepoprawny adres E-mail.";
+    document.getElementById("tekst").textContent = "Twój adres E-mail jest już potwierdzony!";
 }
 </script>
 
