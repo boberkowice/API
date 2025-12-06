@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<p>Nasza strona korzysta z plików Cookie, korzystając z niej akceptujesz nasze warunki.</p>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -10,13 +9,27 @@
 <p id="tekst"></p>
 
 <script>
-let czyByl = localStorage.getItem("emailConfirmed");
+const poprawnyEmail = "Mjjr0002@gmail.com";
 
-if (czyByl === null) {
-    document.getElementById("tekst").textContent = "Twój adres E-mail został właśnie potwierdzony!";
-    localStorage.setItem("emailConfirmed", "true");
+let email = prompt("Podaj adres E-mail");
+
+if (email === poprawnyEmail) {
+
+    let bylWczesniej = localStorage.getItem("emailConfirmed");
+
+    if (bylWczesniej === null) {
+        document.getElementById("tekst").textContent =
+            "Twój adres E-mail został potwierdzony";
+
+        localStorage.setItem("emailConfirmed", "true");
+
+    } else {
+        document.getElementById("tekst").textContent =
+            "Twój adres E-mail jest już potwierdzony!";
+    }
+
 } else {
-    document.getElementById("tekst").textContent = "Twój adres E-mail jest już potwierdzony!";
+    document.getElementById("tekst").textContent = "Niepoprawny adres E-mail.";
 }
 </script>
 
